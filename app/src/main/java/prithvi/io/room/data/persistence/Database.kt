@@ -6,8 +6,8 @@ import prithvi.io.room.utility.Constants
 
 @Database(entities = [
     Customer::class
-], version = Constants.DATABASE_VERSION,
-        exportSchema = false)
+], version = Constants.DATABASE_VERSION
+        )
 abstract class Database : RoomDatabase() {
     abstract fun customerDao(): CustomerDao
 }

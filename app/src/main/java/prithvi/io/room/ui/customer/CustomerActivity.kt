@@ -36,10 +36,10 @@ class CustomerActivity : BaseActivity() {
                         email = "github@gmail.com",
                         userName = "git",
                         languagePreference = "English",
-                        walletAmount = 0,
+                        walletAmount = 0.0,
                         profileImageUrl = "https://github.com/logos",
-                        currentLocation = "Internet"
-                        //source = "ANDROID"
+                        currentLocation = "Internet",
+                        source = "ANDROID"
                 )
         )
         viewModel.getCustomer()
@@ -62,7 +62,8 @@ class CustomerActivity : BaseActivity() {
                             "language: ${customer.languagePreference}\n" +
                             "walletAmount: ${customer.walletAmount}\n" +
                             "profileImageUrl: ${customer.profileImageUrl}\n" +
-                            "location: ${customer.currentLocation}\n"
+                            "location: ${customer.currentLocation}\n" +
+                                    "source: ${customer.source}\n"
                 }
                 Response.Status.ERROR -> toast("Error in getting customer from database")
             }
