@@ -7,27 +7,8 @@
 
 # Migration
 
-First build the project with the commit : `05204801051367f1796d74e98dbc7982ad9af7e5`
-> In this commit we have customer model as:
 
-```@Entity(tableName = "customer")
-data class Customer(
-        @PrimaryKey @ColumnInfo(name = "id") @Json(name = "id") val id: Long = 0,
-        @ColumnInfo(name = "name") val name: String,
-        @ColumnInfo(name = "gender") val gender: String,
-        @ColumnInfo(name = "mobile") val mobile: String,
-        @ColumnInfo(name = "landline") val landLine: String,
-        @ColumnInfo(name = "email") val email: String,
-        @ColumnInfo(name = "user_name") val userName: String,
-        @ColumnInfo(name = "language") val languagePreference: String,
-        @ColumnInfo(name = "wallet_amount") val walletAmount: Long,
-        @ColumnInfo(name = "profile_image_url") val profileImageUrl: String,
-        @ColumnInfo(name = "current_location") val currentLocation: String
-)
-```
-
-Then over this commit build this commit : `4835eb2b26a7e8e27ed266d487f8acf6e41034ef`
-> Which has customer model as:
+Changed entity model
 
 ```@Entity(tableName = "customer")
 data class Customer(
@@ -46,6 +27,11 @@ data class Customer(
 )
 ```
 
+* We created a `roomModule`, a dagger module which will have two methods `providesDatabase` and `provide1To2Migration()` this method will return migration object which will implement `migrate()` where we run query to get data from existing customer table and drop the 
+table and create a new tabled `customer` and insert the data. 
+
+* ensure you do have `exportSchema` option in creating the `Databse.kt` class
+ 
 # Project uses:
 - [Koltin]()
 - [RxJava2](https://github.com/ReactiveX/RxJava), [RxAndroid](https://github.com/ReactiveX/RxAndroid) and [RxKotlin](https://github.com/ReactiveX/RxKotlin)
