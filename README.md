@@ -1,3 +1,5 @@
+This branch has code without migration, checkout migration branch for updated version.
+
 # Room
 > This is a simple example to demonstrate the Room migration in case in which we want to 
 > 1. Change the datatype of a column in table
@@ -26,7 +28,6 @@ data class Customer(
 )
 ```
 
-Then over this commit build this commit : `4835eb2b26a7e8e27ed266d487f8acf6e41034ef`
 > Which has customer model as:
 
 ```@Entity(tableName = "customer")
